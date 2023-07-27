@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const VideoListItem = ({video}) => {
   return (
@@ -8,7 +9,7 @@ const VideoListItem = ({video}) => {
         <span className="title">{video.title}</span>
         <span className="time">{video.time_stamp}</span>
       </div>
-      <button className="btn">Select</button>
+      <Button>Select</Button>
     </li>
   );
 };
