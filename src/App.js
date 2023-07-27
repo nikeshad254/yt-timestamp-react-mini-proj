@@ -1,5 +1,6 @@
 import AddVideo from "./components/AddVideo";
 import Button from "./components/Button";
+import Stampper from "./components/Stampper";
 import VideoLists from "./components/VideoLists";
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
         <AddVideo />
       </div>
 
-      <div className="stampper">hello</div>
+      <Stampper />
+
     </div>
   );
 }
