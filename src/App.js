@@ -8,6 +8,7 @@ function App() {
 
   const [videos, setVideos] = useState([
     {
+      id: 1,
       title: "Home Run",
       img: "https://img.youtube.com/vi/Q3kaYj28oiQ/mqdefault.jpg",
       time_stamp: "20:00",
@@ -16,10 +17,15 @@ function App() {
   ]);
 
   const [showAddForm, setShowAddForm] = useState(false)
+  const [videoID, setVideoId] = useState(null)
 
   function handleToggleAddForm(){
     console.log("called")
     setShowAddForm(s => !s)
+  }
+
+  function selectVideo(id){
+    setVideoId(cId => cId === id? null: id)
   }
 
   function hanldeAddVideo(title, img){
@@ -28,7 +34,9 @@ function App() {
       return
     }
 
+    const id = crypto.randomUUID()
     const newVideo = {
+      id,
       title,
       img,
       time_stamp: "00",
@@ -37,19 +45,21 @@ function App() {
 
     console.log(newVideo)
     setVideos(v => [...v, newVideo])
+    setShowAddForm(false)
+    
   }
 
   return (
     <div className="App">
       <div className="lists-add">
         <h3>Video Time Stamp</h3>
-        <VideoLists videos={videos} />
-        {showAddForm && <AddVideo onAddVideo={hanldeAddVideo} />}
+        <VideoLists videos={videos} selectVideo={selectVideo} videoID={videoID} />
+        {showAddForm && <AddVideo onAddVideo={hanldeAddVideo}/>}
 
         <Button handleClick={handleToggleAddForm} >{showAddForm ? "Close": "Add Video"}</Button>
       </div>
 
-      <Stampper />
+      {videoID && <Stampper />}
 
     </div>
   );

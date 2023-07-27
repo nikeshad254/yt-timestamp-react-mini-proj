@@ -16,6 +16,8 @@ const AddVideo = ({onAddVideo}) => {
     e.preventDefault()
     const cleanedLink = cleanLink(link)
     onAddVideo(title, cleanedLink)
+    setTitle("")
+    setLink("")
   }
 
   return (

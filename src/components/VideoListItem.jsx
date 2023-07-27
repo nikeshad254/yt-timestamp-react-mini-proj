@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const VideoListItem = ({video}) => {
+const VideoListItem = ({video, selectVideo, videoID}) => {
   return (
     <li className="video-list-item">
       <img src={video.img} alt={video.title} />
@@ -9,7 +9,7 @@ const VideoListItem = ({video}) => {
         <span className="title">{video.title}</span>
         <span className="time">{video.time_stamp}</span>
       </div>
-      <Button>Select</Button>
+      <Button handleClick={() => selectVideo(video.id)}>{videoID === video.id? "Close": "Select"}</Button>
     </li>
   );
 };
