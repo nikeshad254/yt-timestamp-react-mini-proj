@@ -82,6 +82,7 @@ function App() {
         <Stampper
           video={videos.filter((item) => item.id === videoID)[0]}
           updateData={updateData}
+          key={videos.filter((item) => item.id === videoID)[0]['id']}
         />
       )}
     </div>

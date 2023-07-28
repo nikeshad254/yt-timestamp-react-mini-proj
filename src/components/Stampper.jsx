@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from './Button'
 
 const Stampper = ({video, updateData}) => {
   // console.log(video)
   const [total, setTotal] = useState(video.total_time)
   const [watched, setWatched] = useState(video.time_stamp)
-
-  useEffect(() => {
-    setTotal(video.total_time)
-    setWatched(video.time_stamp)
-  }, [video.total_time, video.time_stamp])
 
   function handleSubmit(e){
     e.preventDefault()
